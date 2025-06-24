@@ -1,0 +1,14 @@
+services:
+  jmeter:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: azani/jmeter:latest
+    environment:
+      - JVM_ARGS=-Xms4g -Xmx16g -XX:+UseG1GC # increase JVM memory as well as you want to init more threads
+    volumes:
+      - ./app:/app
+    working_dir: /app
+    network_mode: "host"
+    # Keep container running for inspection
+    command: tail -f /dev/null

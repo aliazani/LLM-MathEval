@@ -1,0 +1,18 @@
+services:
+  evaluator:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: llm-evaluator
+    network_mode: "host"
+    environment:
+      # Phoenix configuration
+      - PHOENIX_URL=http://localhost:6006
+      - PHOENIX_PROJECT=vllm-custom-server-final
+      
+      # Ollama configuration
+      - OLLAMA_HOST=localhost
+      - OLLAMA_PORT=11434
+    volumes:
+      # Mount output directory to access results
+      - ./app:/app

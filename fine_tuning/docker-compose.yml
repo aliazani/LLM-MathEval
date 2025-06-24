@@ -1,0 +1,20 @@
+services:
+  train:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: azani/fine_tuning:latest
+    volumes:
+      - ./app:/app
+    working_dir: /app
+    environment:
+      - HF_TOKEN=${HF_TOKEN}
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: all
+              capabilities: [gpu]
+
+# docker compose --env-file .env up

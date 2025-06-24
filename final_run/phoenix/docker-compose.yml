@@ -1,0 +1,13 @@
+services:
+  phoenix:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    network_mode: host
+    image: azani/phoenix:latest
+    volumes:
+      - ./app:/app          # keep it read-write (default)
+    environment:            # a hidden sub-folder keeps code & data separate
+      - PHOENIX_WORKING_DIR=/app/.phoenix
+      - PHOENIX_EXPORT_DIR=/app/.phoenix/exports
+      - PYTHONUNBUFFERED=1
