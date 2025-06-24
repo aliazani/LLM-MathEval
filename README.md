@@ -333,7 +333,7 @@ deactivate
 
 ```
 
-#### 4. the third phase: Final Production Run
+### 4. the third phase: Final Production Run
 
 ```bash
 # Phase 3: Final Production Run
