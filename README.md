@@ -288,11 +288,6 @@ cd LLM-MathEval
 ```bash
 ## Phase 1: Fine-tuning
 cd LLM-MathEval/fine_tuning
-cat > .env << EOF
-export HF_TOKEN="your_huggingface_token_here"
-EOF
-
-source .env
 
 # Build and run the fine-tuning service
 docker-compose up --build
