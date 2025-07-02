@@ -455,6 +455,13 @@ docker volume prune -f
 docker images | grep -E "mathchat|phoenix|jmeter|ollama" | awk '{print $3}' | xargs -r docker rmi -f
 ```
 
+**Note:** Ensure that all Docker entrypoint scripts (for example, `entrypoint.sh` or any other scripts used as entrypoints) are executable. You can do this by running:
+
+```bash
+chmod +x entrypoint.sh
+```
+
+
 ## Contributing
 
 We welcome contributions! Please follow these guidelines:
